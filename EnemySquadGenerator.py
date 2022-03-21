@@ -19,13 +19,13 @@ def random_pairs(arg_list,length):
     return pairs
     
 #heres where  you set how many levels you want to make pairs for 
-n = 70
+number_of_levels = 70
 count=0
 #heres the string list of monsters
-mons_list=["goblin","slime","apple","worm"]
+monster_list=["goblin","slime","apple","worm", "vampire"]
 
 #this loop prints out a monster with its instance number
-while count <n:
+while count <number_of_levels:
     length=random.randint(2,4)
     pairs=random_pairs(numbers,length)
     #this if statement checks if the elements in number group are 
@@ -36,8 +36,20 @@ while count <n:
         #the loop runs again without moving forward
         count+=1
         mons=(random_pairs(mons_list,length))
+	#To restrict monsters from certain levels
+	#For instance switching between day and might phase and not wanted certain AI around during the day,
+	# you can use modulo checks. In this instance, day and night alternate so the night phase will always be divisible by two
+	 if count%2!=0:
+            if "kin" in mons:
+		#so if we're not in a night phase and vampire is present, replace it
+                index= mons.index("vampire")
+                mons[index]="slime"
+	# in this instance you want a boss to appear every five levels
+	#note that it is not included in the main list
+        if count%5==0:
+            mons[-1]="boss"
         print(count)
         for i in range(len(pairs)):
-            print ( "@"+str(mons[i]) +"-"+str(pairs[i]))
+            print ( str(mons[i]) +"-"+str(pairs[i]))
 			
 			
