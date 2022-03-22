@@ -40,7 +40,7 @@ while count <number_of_levels:
 	#For instance switching between day and might phase and not wanted certain AI around during the day,
 	# you can use modulo checks. In this instance, day and night alternate so the night phase will always be divisible by two
 	 if count%2!=0:
-            if "kin" in mons:
+            if "vampire" in mons:
 		#so if we're not in a night phase and vampire is present, replace it
                 index= mons.index("vampire")
                 mons[index]="slime"
