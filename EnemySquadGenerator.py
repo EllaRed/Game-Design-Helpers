@@ -35,7 +35,7 @@ while count <number_of_levels:
         # so if the total number of instances is not 10,
         #the loop runs again without moving forward
         count+=1
-        mons=(random_pairs(mons_list,length))
+        mons=(random_pairs(monster_list,length))
 	#To restrict monsters from certain levels
 	#For instance switching between day and might phase and not wanted certain AI around during the day,
 	# you can use modulo checks. In this instance, day and night alternate so the night phase will always be divisible by two
